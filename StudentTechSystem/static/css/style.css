@@ -966,3 +966,48 @@ footer::before {
     font-size: 5rem;
     animation: pulse 2s infinite;
 }
+
+/* ============ Mobile Responsiveness ============ */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar-brand {
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .hero-wrapper {
+        padding: 100px 0 60px;
+    }
+
+    .hero-wrapper h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-item,
+    .course-item {
+        margin-bottom: 30px;
+    }
+
+    .cert-container {
+        padding: 20px;
+    }
+
+    .cert-name {
+        font-size: 2.5rem;
+    }
+}
