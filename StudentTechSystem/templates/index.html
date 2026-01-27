@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Hero Start -->
+<div class="hero-header">
+    <div class="container hero-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h5 class="text-white text-uppercase mb-3 wow slideInDown" data-wow-delay="0.1s">Best Online Courses
+                </h5>
+                <h1 class="display-3 text-white hero-title">Get Educated Online From Your Home</h1>
+                <p class="fs-5 text-white mb-4 pb-2 hero-text">Welcome to SMART-LEARN Student Technology Guidance
+                    System. Explore our courses, watch videos, and get certified in the latest technologies.</p>
+                <a href="#courses" class="btn btn-primary join-btn">Join Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                        <h5 class="mb-3">Skilled Instructors</h5>
+                        <p>Learn from industry experts with years of experience.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                        <h5 class="mb-3">Online Classes</h5>
+                        <p>Access high-quality video tutorials anytime, anywhere.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                        <h5 class="mb-3">Home Projects</h5>
+                        <p>Build real-world projects to strengthen your portfolio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                        <h5 class="mb-3">Book Library</h5>
+                        <p>Comprehensive resources and documentation for every course.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+<!-- About Start -->
+<div class="container-xxl py-5" id="about">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100"
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="About" style="object-fit: cover; border-radius: 5px;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                <h1 class="mb-4">Welcome to SMART-LEARN</h1>
+                <p class="mb-4">This platform is designed to guide students in choosing the right technology path.
+                    Whether you are interested in AI, Web Development, or Java, we have structured learning paths for
+                    you.</p>
+                <p class="mb-4">Our mission is to empower students with the skills needed for the modern tech industry
+                    through curated video content and assessments.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                    </div>
+                </div>
+                <!-- <a class="btn btn-primary join-btn" href="">Read More</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Courses Start -->
+<div class="container-xxl py-5" id="courses">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+
+            {% for tech_key, tech in technologies.items() %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ loop.index + 1 }}s">
+                <div class="course-item bg-light">
+                    <div class="position-relative overflow-hidden">
+                        <!-- Placeholder Images relevant to tech -->
+                        {% if tech_key == 'Python' %}
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                        {% elif tech_key == 'Web Dev' %}
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                        {% elif tech_key == 'Data Science' %}
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                        {% elif tech_key == 'Java' %}
+                        <img class="img-fluid"
+                            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                            alt="">
+                        {% endif %}
+
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                            <a href="{{ url_for('register', tech_key=tech_key) }}"
+                                class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                                style="border-radius: 30px 0 0 30px;">Read More</a>
+                            <a href="{{ url_for('register', tech_key=tech_key) }}"
+                                class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                                style="border-radius: 0 30px 30px 0;">Join Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(123)</small>
+                        </div>
+                        <h5 class="mb-4">{{ tech.name }}</h5>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-user-tie text-primary me-2"></i>Teacher</small>
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
+                            Students</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- Courses End -->
+
+<!-- JavaScript to enable simpler Wow.js like behavior if no JS lib used -->
+<script>
+    // Simple script to reveal elements on scroll
+    document.addEventListener("DOMContentLoaded", function () {
+        // Since we are using CSS animations that run on load for Hero, 
+        // we can add a simple IntersectionObserver for cleaner scroll effect later if needed.
+        // For now, let animations play.
+    });
+</script>
+{% endblock %}

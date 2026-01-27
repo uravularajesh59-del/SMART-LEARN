@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2 style="text-align: center;">Admin Dashboard</h2>
+
+<div class="card" style="padding: 20px;">
+    {% for batch_name, students in batches.items() %}
+    <div style="margin-bottom: 40px;">
+        <h3 style="background: #f1f1f1; padding: 10px; border-left: 5px solid var(--primary-color);">
+            <i class="fas fa-users"></i> {{ batch_name }}
+        </h3>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>Technology</th>
+                        <th>Score</th>
+                        <th>Certified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.roll_number }}</td>
+                        <td>{{ student.technology }}</td>
+                        <td>{{ student.test_score }}</td>
+                        <td>
+                            {% if student.is_certified %}
+                            <span style="color: green; font-weight: bold;">Yes</span>
+                            {% else %}
+                            <span style="color: red;">No</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <p style="text-align: center;">No students registered yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

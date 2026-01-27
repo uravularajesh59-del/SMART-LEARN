@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Instructions - StudentTechSystem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .status {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            color: #721c24;
+            font-weight: 600;
+        }
+
+        .step {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fd;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step p,
+        .step li {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .step ol {
+            margin-left: 20px;
+        }
+
+        .code {
+            background: #1a202c;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #718096, #4a5568);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎓 StudentTechSystem</h1>
+        <p class="subtitle">Setup Required</p>
+
+        <div class="status">
+            ⚠️ Python needs to be installed to run this application
+        </div>
+
+        <div class="step">
+            <h2>📥 Option 1: Quick Install (Recommended)</h2>
+            <p>Click the button below to install Python from the Microsoft Store:</p>
+            <a href="ms-windows-store://pdp/?ProductId=9NRWMJP3717K" class="btn">Install Python from Store</a>
+            <p style="margin-top: 15px;">After installation, double-click <code>LAUNCH.bat</code> to start the app.</p>
+        </div>
+
+        <div class="step">
+            <h2>💻 Option 2: Manual Install</h2>
+            <ol>
+                <li>Download Python from <a href="https://www.python.org/downloads/" target="_blank"
+                        style="color: #667eea; font-weight: 600;">python.org</a></li>
+                <li>During installation, <strong>check "Add Python to PATH"</strong></li>
+                <li>Open Command Prompt and navigate to this folder</li>
+                <li>Run: <div class="code">python start.py</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>🚀 After Installation</h2>
+            <p>Once Python is installed, you can start the app using any of these methods:</p>
+            <ul style="margin-left: 20px;">
+                <li>Double-click <strong>LAUNCH.bat</strong> (opens browser automatically)</li>
+                <li>Run <code>python start.py</code> in the terminal</li>
+                <li>Run <code>python app.py</code> in the terminal</li>
+            </ul>
+            <p style="margin-top: 15px;">The app will be available at: <strong>http://127.0.0.1:5000</strong></p>
+        </div>
+
+        <div class="step">
+            <h2>📚 Documentation</h2>
+            <p>For more information, see the README.md file in the project folder.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Assessment</h6>
+            <h1 class="mb-5">Student Login</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="register-form-container">
+                    <p class="text-center mb-4 text-secondary">Enter your Roll Number to access the assessment.</p>
+                    <form action="{{ url_for('test_login') }}" method="POST">
+                        <div class="form-group mb-4">
+                            <label class="mb-2">Roll Number</label>
+                            <input type="text" name="roll_number" class="form-control" required
+                                placeholder="e.g., TECH-2024-001">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-3">Start Assessment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
