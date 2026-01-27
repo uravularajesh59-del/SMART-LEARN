@@ -2,6 +2,27 @@
 
 ![SMART-LEARN Banner](https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
 
+## 🚀 QUICK START
+
+### Windows Users
+1. Clone this repository
+2. Navigate to `StudentTechSystem` folder
+3. **Double-click `START.bat`** - That's it! 🎉
+
+### Mac/Linux Users
+```bash
+git clone https://github.com/uravularajesh59-del/SMART-LEARN.git
+cd SMART-LEARN/StudentTechSystem
+chmod +x start.sh
+./start.sh
+```
+
+**Then open**: http://localhost:5000
+
+📖 **Need help?** See [QUICKSTART.md](StudentTechSystem/QUICKSTART.md) for detailed instructions and troubleshooting.
+
+---
+
 ## 📋 Overview
 
 SMART-LEARN is a comprehensive e-learning platform designed to guide students in choosing and mastering the right technology path. The platform offers structured learning paths with video courses, assessments, and professional certificates in various technologies including Python, Web Development, Data Science, and Java.
