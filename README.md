@@ -4,7 +4,12 @@
 
 ## 🚀 QUICK START
 
-### Windows Users
+### 1-Click to Go Live (Get a URL)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/uravularajesh59-del/SMART-LEARN)
+
+### Or Run Locally:
+
+#### Windows Users
 1. Clone this repository
 2. Navigate to `StudentTechSystem` folder
 3. **Double-click `START.bat`** - That's it! 🎉
