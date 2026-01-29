@@ -1,10 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here' # Change this for production
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# Use environment variable for Secret Key (Production Best Practice)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_dev_secret_key') 
+# Use environment variable for Database URL (Production Best Practice)
+# Fix SQLAlchemy URL handling for Postgres (Render usage)
+uri = os.environ.get('DATABASE_URL', 'sqlite:///database.db')
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
