@@ -1,12 +1,11 @@
 services:
   - type: web
-    name: smart-learn
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    name: smart-learn-react
+    runtime: node
+    buildCommand: |
+      cd SmartLearn-React/frontend && npm install && npm run build
+      cd ../backend && npm install
+    startCommand: node SmartLearn-React/backend/server.js
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.0
-      - key: SECRET_KEY
-        generateValue: true
-    rootDir: StudentTechSystem
+      - key: NODE_VERSION
+        value: 18.0.0

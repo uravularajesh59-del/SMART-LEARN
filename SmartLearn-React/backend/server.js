@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Initialize SQLite database
 const db = new Database('smartlearn.db');
@@ -78,13 +78,13 @@ app.get('/api/technologies', (req, res) => {
 // POST - Register student
 app.post('/api/register', (req, res) => {
   const { name, roll_number, email, mobile, dob, technology } = req.body;
-  
+
   // Check if student already exists
   const existing = db.prepare('SELECT * FROM students WHERE roll_number = ?').get(roll_number);
   if (existing) {
-    return res.status(400).json({ 
-      success: false, 
-      message: 'Student with this Roll Number already exists!' 
+    return res.status(400).json({
+      success: false,
+      message: 'Student with this Roll Number already exists!'
     });
   }
 
@@ -97,7 +97,7 @@ app.post('/api/register', (req, res) => {
     INSERT INTO students (name, roll_number, email, mobile, dob, technology, batch_group)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
-  
+
   try {
     const result = insert.run(name, roll_number, email, mobile, dob, technology, batch_group);
     res.json({
@@ -113,11 +113,11 @@ app.post('/api/register', (req, res) => {
 // GET - Student by roll number
 app.get('/api/student/:rollNumber', (req, res) => {
   const student = db.prepare('SELECT * FROM students WHERE roll_number = ?').get(req.params.rollNumber);
-  
+
   if (!student) {
     return res.status(404).json({ success: false, message: 'Student not found' });
   }
-  
+
   res.json({ success: true, student });
 });
 
@@ -153,7 +153,7 @@ app.get('/api/test/:technology', (req, res) => {
 // POST - Submit test
 app.post('/api/test/submit', (req, res) => {
   const { studentId, answers, technology } = req.body;
-  
+
   // Get questions for this technology
   const questionsResponse = db.prepare('SELECT * FROM students WHERE id = ?').get(studentId);
   if (!questionsResponse) {
@@ -209,7 +209,7 @@ app.post('/api/test/submit', (req, res) => {
 // GET - All students (Admin)
 app.get('/api/admin/students', (req, res) => {
   const students = db.prepare('SELECT * FROM students ORDER BY registration_date DESC').all();
-  
+
   // Group by batch
   const batches = {};
   students.forEach(student => {
@@ -225,7 +225,7 @@ app.get('/api/admin/students', (req, res) => {
 // GET - Certificate data
 app.get('/api/certificate/:studentId', (req, res) => {
   const student = db.prepare('SELECT * FROM students WHERE id = ?').get(req.params.studentId);
-  
+
   if (!student) {
     return res.status(404).json({ success: false, message: 'Student not found' });
   }
@@ -241,10 +241,23 @@ app.get('/api/certificate/:studentId', (req, res) => {
   });
 });
 
+// Serve static assets in production
+const frontendBuildPath = join(__dirname, '../frontend/dist');
+app.use(express.static(frontendBuildPath));
+
+// Add a catch-all route to serve index.html for React Router
+app.get('*', (req, res, next) => {
+  // If the request is for an API route, don't serve index.html
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(join(frontendBuildPath, 'index.html'));
+});
+
 // Start server
 app.listen(PORT, () => {
-  console.log('🚀 SMART-LEARN Backend Server');
-  console.log(`📡 Server running on http://localhost:${PORT}`);
+  console.log('🚀 SMART-LEARN Node.js Backend Server');
+  console.log(`📡 Server running on port ${PORT}`);
   console.log(`📊 Database: smartlearn.db`);
   console.log('✨ Ready to accept requests!');
 });
